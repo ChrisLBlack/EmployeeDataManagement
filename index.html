@@ -12,24 +12,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--Bootstrap CDN Link-->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
 
     <title>Employee Data Management</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid text-center">
             <div class="container">
                 <h1 class="display-4">Employee Data Management</h1>
                 <p class="lead">Text Goes Here: Simple Description</p>
             </div>
         </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Monday</th>
+                <th scope="col">Tuesday</th>
+                <th scope="col">Wednesday</th>
+                <th scope="col">Thursday</th>
+                <th scope="col">Friday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Week 1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">Week 2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">Week 3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
         <div class="container" id="rowInsert">
 
         </div>
 
     </div>
+
+    <script type="text/javascript" src="app.js"></script>
 </body>
 
 </html>
