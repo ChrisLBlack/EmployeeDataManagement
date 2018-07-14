@@ -17,7 +17,7 @@ $(document).ready(function () {
     var rateNum = 0;
 
 
-    $("#add-employee-btn").on("click", function () {
+    $("#add-employee-btn").on("click", function (event) {
         
         event.preventDefault();
 
@@ -40,4 +40,12 @@ $(document).ready(function () {
        $('#rate-input').val("");
 
     });
+
+    firebase.database().ref().limitToLast(10).on("child_added", function(snapshot){
+       
+        $('tbody').append($(`<tr><td>${snapshot.val().name}</td><td>${snapshot.val().role}</td>
+        <td>${snapshot.val().date}</td><td>${snapshot.val().pay}</td></tr>`));
+        
+        
+    })
 });
