@@ -4,66 +4,106 @@
 <!-- widgets productivity by employee -->
 <!-- Display a master schedule on initial load in the body, where each day you can see the individual schedules -->
 
-<!DOCTYPE html>
-<html lang="en">
+
+<html lang="en-us">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--Bootstrap CDN Link-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-        crossorigin="anonymous">
 
-    <title>Employee Data Management</title>
+  <meta charset="UTF-8">
+  <title>Employee Tracker</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <!-- Moment.js Reference -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+  <style>
+    #employee-table th, td {
+      display: inline-block;
+      width: 16.575%;
+    }
+    
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron jumbotron-fluid text-center">
-            <div class="container">
-                <h1 class="display-4">Employee Data Management</h1>
-                <p class="lead">Text Goes Here: Simple Description</p>
-            </div>
-        </div>
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Monday</th>
-                <th scope="col">Tuesday</th>
-                <th scope="col">Wednesday</th>
-                <th scope="col">Thursday</th>
-                <th scope="col">Friday</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Week 1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">Week 2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">Week 3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        <div class="container" id="rowInsert">
 
-        </div>
+  <!-- Employee Tracker -->
+  <div class="container">
 
+    <!-- Jumbotron -->
+    <div class="jumbotron" style="background-color: black; color: white">
+      <h1 class="text-center">Employee Data Management</h1>
+      <h3 class="text-center">A Comprehensive Directory of Employee Billable Hours</h3>
     </div>
 
-    <script type="text/javascript" src="app.js"></script>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Add Employee  -->
+        <div class="card mb-4 p-4">
+          <div class="card-body">
+            <h3 class="card-title">Add Employee</h3>
+            <!-- Entry Form -->
+            <form>
+              <div class="form-group row">
+                <label for="employee-name-input">Employee Name</label>
+                <input class="form-control" id="employee-name-input" placeholder="Jane Doe" type="text">
+              </div>
+              <div class="form-group row">
+                <label for="role-input">Role</label>
+                <input class="form-control" id="role-input" placeholder="CEO" type="text">
+              </div>
+              <div class="form-group row">
+                <label for="start-input">Start Date (MM/DD/YYYY)</label>
+                <input class="form-control" id="start-input" placeholder="01/08/1989" type="text">
+              </div>
+              <div class="form-group row">
+                <label for="rate-input">Monthly Rate</label>
+                <input class="form-control" id="rate-input" placeholder="200000" type="text">
+              </div>
+              <button class="btn btn-primary float-right" id="add-employee-btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-12">
+
+        <!-- Current Employees-->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3 class="card-title">Current Employees</h3>
+            <table class="table table-sm table-hover" id='employee-table'>
+              <thead>
+                <tr>
+                  <th scope="col">Employee Name</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">Months Worked</th>
+                  <th scope="col">Monthly Rate ($)</th>
+                  <th scope="col">Total Billed ($)</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+
 </body>
 
 </html>
